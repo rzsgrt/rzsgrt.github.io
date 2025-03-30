@@ -3,7 +3,6 @@ layout: post
 title:  Counterfactual Machine Learning
 categories: [counterfactual, interpretable machine learning]
 ---
-***(Disclaimer: I use an LLM while write this post to ensure my writing is grammatically correct and easy to understand. All generated content is reviewed to prevent any changes in meaning. However, any incorrect information in this post may result from my own misunderstandings. If you notice any inaccuracies, please let me know.)***
 
 I'll begin by discussing counterfactuals example. Suppose we have a machine learning model that predicts the likelihood of a patient developing diabetes, with one of its features is the patient's glucose level. In this scenario, the model predicts that a patient has a high likelihood of developing diabetes, based on their glucose level. Now we may wonder what glucose level would be required for the prediction to change to not indicate diabetes. To answer this question, we can run a counterfactual analysis using the machine learning model, where we simulate changing the patient's glucose level and observe how this affects the prediction.
 So, with this example, we can see that counterfactual can be used for *interpreting* (its not *casual relationship*) model prediction for specific instance.
@@ -42,6 +41,10 @@ L(x') = L_{\text{pred}} + \lambda_1 L_{\text{prox}} + \lambda_2 L_{\text{div}}
 The first and second component similar with we see in Watcher. The last component encourages diversity among the generated counterfactuals which results different feature combinations being altered. Using this approach, we can get multiple alternative paths to achieve the desired outcome.
 
 Luckily, both Wachter version or Mothilal version are available in python. The first is implemented in mlextend while the second has official implementation on github.
+
+---
+
+***(Disclaimer: I use an LLM while write this post to ensure my writing is grammatically correct and easy to understand. All generated content is reviewed to prevent any changes in meaning. However, any incorrect information in this post may result from my own misunderstandings. If you notice any inaccuracies, please let me know.)***
 
 ---
 Source:
