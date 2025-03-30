@@ -10,7 +10,6 @@ If you find and wonder what this blog about, this blog meant to record everythin
 
 In case you need to discuss something with me, you can find me at
 
-- [twitter](https://twitter.com/rzsgrt) (usually just RT'ing other researcher)
 - [linkedin page](https://www.linkedin.com/in/reza-sugiarto/)
 - [email](mailto:reza16.sugiarto@gmail.com)
 
