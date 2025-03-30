@@ -53,3 +53,4 @@ Source:
 [2] Mothilal, Ramaravind K., Amit Sharma, and Chenhao Tan. (2019). Explaining Machine Learning Classifiers through Diverse Counterfactual Explanations. [link](https://arxiv.org/pdf/1905.07697)  
 [3] Interpreting models via counterfactuals (Code) [link](https://rasbt.github.io/mlxtend/user_guide/evaluate/create_counterfactual/)  
 [4] Diverse Counterfactual Explanations (DiCE) for ML (Code) [link](https://github.com/interpretml/DiCE)  
+[5] Counterfactual Explanations [link](https://christophm.github.io/interpretable-ml-book/counterfactual.html)
