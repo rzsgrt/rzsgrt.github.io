@@ -7,7 +7,7 @@ categories: [counterfactual, interpretable machine learning]
 I'll begin by discussing counterfactuals example. Suppose we have a machine learning model that predicts the likelihood of a patient developing diabetes, with one of its features is the patient's glucose level. In this scenario, the model predicts that a patient has a high likelihood of developing diabetes, based on their glucose level. Now we may wonder what glucose level would be required for the prediction to change to not indicate diabetes. To answer this question, we can run a counterfactual analysis using the machine learning model, where we simulate changing the patient's glucose level and observe how this affects the prediction.
 So, with this example, we can see that counterfactual can be used for *interpreting* (its not *casual relationship*) model prediction for specific instance.
 
-When generating counterfactual example, we want feature changes to be minimal and the new value is actionable. To formalize that requirement, we can refer to loss function proposed by Wachter et al\\(\text{^[1]}\\)
+When generating counterfactual example, we want feature changes to be minimal and the new value is actionable. To formalize that requirement, we can refer to loss function proposed by Wachter et al\\(\textsuperscript{[1]}\\)
 
 $$
 L(x', x) = \lambda \cdot (f(x') - y')^2 + d(x, x')
@@ -34,7 +34,7 @@ $$
 $$
 This normalization ensures scale invariance across features.
 
-Along with Watcher, I found another paper proposing loss function more robust since they include diversity in generated example. Mothilal\\(\text{^[2]}\\) add new component in loss function:
+Along with Watcher, I found another paper proposing loss function more robust since they include diversity in generated example. Mothilal\\(\textsuperscript{[2]}\\) add new component in loss function:
 
 $$
 L(x') = L_{\text{pred}} + \lambda_1 L_{\text{prox}} + \lambda_2 L_{\text{div}}
