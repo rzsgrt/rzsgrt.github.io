@@ -9,9 +9,11 @@ So, with this example, we can see that counterfactual can be used for *interpret
 
 When generating counterfactual example, we want feature changes to be minimal and the new value is actionable. To formalize that requirement, we can refer to loss function proposed by Wachter et al[^1]
 
-```math
+{% raw %}
+\[
 L(x', x) = \lambda \cdot (f(x') - y')^2 + d(x, x')
-```
+\]
+{% endraw %}
 
 where:
 
