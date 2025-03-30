@@ -8,24 +8,27 @@ I'll begin by discussing counterfactuals example. Suppose we have a machine lear
 So, with this example, we can see that counterfactual can be used for *interpreting* (its not *casual relationship*) model prediction for specific instance.
 
 When generating counterfactual example, we want feature changes to be minimal and the new value is actionable. To formalize that requirement, we can refer to loss function proposed by Wachter et al^[1]^
+
 $$
 L(x', x) = \lambda \cdot (f(x') - y')^2 + d(x, x')
 $$
 
 where:
 
-- $x$ is the original input.
-- $x'$ is the counterfactual.
-- $f(x')$ is the model's prediction on the counterfactual.
-- $y'$ is the desired output.
-- $d(x, x')$ is a distance function.
-- $\lambda$ is a regularization parameter that controls the trade-off between achieving the desired prediction and staying close to the original instance.
+- \$x\$ is the original input.
+- \$x'\$ is the counterfactual.
+- \$f(x')\$ is the model's prediction on the counterfactual.
+- \$y'\$ is the desired output.
+- \$d(x, x')\$ is a distance function.
+- \$\lambda\$ is a regularization parameter that controls the trade-off between achieving the desired prediction and staying close to the original instance.
 
-For distance function above:
+For distance function above:  
 $$
 d(x, x') = \sum_{i} \frac{|x_i - x'_i|}{\text{MAD}_i}
 $$
+
 where:
+
 $$
 \text{MAD}_i = \text{median}(|x_i - \text{median}(x_i)|)
 $$
