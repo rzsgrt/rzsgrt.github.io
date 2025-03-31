@@ -4,7 +4,7 @@ title:  Python Decorator
 categories: [python,decorator]
 ---
 
-Decorator is one of design pattern type. It allow you to add additional functionality to your function or class. For note:this functionality should be out of scope your function, because your function should have one thing to do. Andd to achieve this, we just create function that accept main function as argument
+Decorator is one of design pattern type. It allow you to add additional functionality to your function or class. For note:this functionality should be out of scope your function, because your function should have one thing to do. And to achieve this, we just create function that accept main function as argument
 
 ---
 
@@ -206,8 +206,6 @@ def class_decorator():
 &nbsp;  
 &nbsp;  
 That's all! In real world application you might find useful usage of decorator like [compiling using jit](https://numba.pydata.org/numba-doc/latest/user/jit.html) or using decorator for [caching](https://docs.python.org/3/library/functools.html)
-
-If you have question or something to clarify, please go to [here](https://rzsgrt.github.io/about/) and contact me.
 
 ---
 

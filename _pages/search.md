@@ -5,8 +5,8 @@ permalink: /search/
 ---
 
 <div id="search-container">
-    <input type="text" id="search-input" placeholder="Search through the blog posts...">
-    <ul id="results-container"></ul>
+<input type="text" id="search-input" placeholder="Search...">
+<ul id="results-container"></ul>
 </div>
 
 <script src="{{ site.baseurl }}/assets/simple-jekyll-search.min.js" type="text/javascript"></script>
