@@ -1,0 +1,28 @@
+---
+layout: page
+permalink: /archive/
+title: Posts Archive
+---
+
+<div id="archives">
+  <section id="archive">
+    {%- assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'" -%}
+    {%- for year in postsByYear -%}
+      <h2>{{ year.name }}</h2>
+      {%- assign postsByMonth = year.items | group_by_exp:"post", "post.date | date: '%B'" -%}
+      {%- for month in postsByMonth -%}
+        <h3>{{ month.name }}</h3>
+        <ul class="{% if forloop.first and forloop.first %}this{% else %}past{% endif %}">
+          {%- for post in month.items -%}
+            <li>
+              <p>
+                <b><a href="{{ site.baseurl }}{{ post.url }}">{% if post.title and post.title != "" %}{{post.title}}{% else %}{{post.excerpt |strip_html}}{%endif%}</a></b>
+                - {% if post.date and post.date != "" %}{{ post.date | date: "%e %B %Y" }}{%endif%}
+              </p>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endfor -%}
+    {%- endfor -%}
+  </section>
+</div>

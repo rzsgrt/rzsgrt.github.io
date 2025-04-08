@@ -1,22 +1,23 @@
 ---
 layout: default
+permalink: /thoughts/
 ---
+
 <div class="posts">
-  {% for post in paginator.posts %}
-    {% unless post.layout == "thought" %}
-      <article class="post">
-        <a href="{{ site.baseurl }}{{ post.url }}">
-          <h1>{{ post.title }}</h1>
-          <div>
-            <p class="post_date">{{ post.date | date: "%B %e, %Y" }}</p>
-          </div>
-        </a>
-        <div class="entry">
-          {{ post.excerpt }}
-          <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+  {% assign thoughts = site.posts | where: "layout", "thought" %}
+  {% for post in thoughts %}
+    <article class="post">
+      <a href="{{ site.baseurl }}{{ post.url }}">
+        <h1>{{ post.title }}</h1>
+        <div>
+          <p class="post_date">{{ post.date | date: "%B %e, %Y" }}</p>
         </div>
-      </article>
-    {% endunless %}
+      </a>
+      <div class="entry">
+        {{ post.excerpt }}
+        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+      </div>
+    </article>
   {% endfor %}
 
   <!-- pagination -->
@@ -32,9 +33,9 @@ layout: default
       {% if page == paginator.page %}
         <span class="webjeda">{{ page }}</span>
       {% elsif page == 1 %}
-        <a href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+        <a href="{{ site.baseurl }}/thoughts/">{{ page }}</a>
       {% else %}
-        <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+        <a href="{{ site.baseurl }}/thoughts/page{{ page }}/">{{ page }}</a>
       {% endif %}
     {% endfor %}
 

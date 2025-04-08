@@ -21,15 +21,15 @@ avatar: /images/icons8-homer-simpson-160.png
 # Includes an icon in the footer for each username you enter
 # footer-links:
   # dribbble:
-  # email: reza16.sugiarto@gmail.com
+  # email: 
   # facebook:
   # flickr:
-  # github: rzsgrt
+  # github: 
   # instagram:
-  # linkedin: reza-sugiarto
+  # linkedin: 
   # pinterest:
   # rss: rss
-  # twitter: rzsgrt
+  # twitter: 
   # stackoverflow:
   # youtube: # channel/<your_long_string> or user/<user-name>
   # googleplus: # anything in your profile username that comes after plus.google.com/
@@ -93,8 +93,9 @@ plugins:
 
 include: ["_pages"]
 
-paginate: 6
-paginate_path: /page:num/
+# Pagination settings
+paginate: 12  # Increased to show more posts since some will be filtered
+paginate_path: "/page/:num/"
 
 # Exclude these files from your production _site
 exclude:
