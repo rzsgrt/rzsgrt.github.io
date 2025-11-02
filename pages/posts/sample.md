@@ -1,0 +1,73 @@
+---
+title: Welcome to Reverie
+date: December 11, 2024
+excerpt: An elegant blog theme built with Next.js, featuring LaTeX support, image handling, and beautiful typography.
+---
+
+Welcome to **Reverie**, an elegant blog theme inspired by the classic Jekyll theme. This is a sample post to demonstrate the features of this blog.
+
+## LaTeX Support
+
+This blog supports LaTeX math rendering using KaTeX. Here are some examples:
+
+Inline math: $E = mc^2$
+
+Display math:
+$$
+\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
+$$
+
+The quadratic formula:
+$$
+x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}
+$$
+
+## Images
+
+You can add images to your posts. Place them in the `public/images/` directory and reference them in markdown:
+
+```markdown
+![Alt text](/images/filename.jpg)
+```
+
+## Typography
+
+This theme features beautiful serif typography for the body text and clean sans-serif for headings and navigation. The design focuses on readability and letting your content shine.
+
+## Blockquotes
+
+> Sometimes, your post just stands for itself and doesn't need a title. And that's fine, too!
+
+## Code
+
+You can include code snippets in your posts:
+
+```javascript
+function greet(name) {
+  console.log(`Hello, ${name}!`);
+}
+```
+
+```python
+def greet(name):
+  print(f"Hello, {name}!")
+```
+
+The code snippets are styled beautifully and support syntax highlighting.
+
+## Lists
+
+You can create ordered lists:
+
+1. First item
+2. Second item
+3. Third item
+
+And unordered lists:
+
+- Item one
+- Item two
+- Item three
+
+Enjoy writing and sharing your thoughts with this elegant theme!
+
