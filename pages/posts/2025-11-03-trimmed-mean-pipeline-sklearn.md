@@ -1,6 +1,6 @@
 ---
 title: Trimmed Mean Pipeline in Sklearn
-date: March 30, 2025
+date: November 03, 2025
 excerpt: A post about the trimmed mean and how to create a custom scikit-learn transformer to handle missing values using the trimmed mean.
 ---
 
