@@ -19,8 +19,8 @@ export default function Home({ posts }: HomeProps) {
   return (
     <Layout>
       <Head>
-        <title>Reverie</title>
-        <meta name="description" content="An elegant blog theme" />
+        <title>rzsgrt notes</title>
+        <meta name="description" content="rzsgrt's notes" />
       </Head>
       <main>
         {posts.map((post) => (

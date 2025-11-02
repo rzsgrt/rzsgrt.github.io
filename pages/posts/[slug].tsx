@@ -19,7 +19,7 @@ export default function PostPage({ post }: PostPageProps) {
   return (
     <Layout>
       <Head>
-        <title>{post.title} - Reverie</title>
+        <title>{post.title}</title>
         <meta name="description" content={post.title} />
       </Head>
       <article className="post">

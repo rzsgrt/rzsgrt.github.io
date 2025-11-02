@@ -1,9 +1,10 @@
 import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
-import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import React from 'react';
 
 interface MarkdownContentProps {
   content: string;
@@ -12,55 +13,48 @@ interface MarkdownContentProps {
 export default function MarkdownContent({ content }: MarkdownContentProps) {
   return (
     <ReactMarkdown
-      remarkPlugins={[remarkMath]}
-      rehypePlugins={[rehypeKatex as any, rehypeRaw]}
+      remarkPlugins={[remarkMath, remarkGfm]}
+      rehypePlugins={[[rehypeKatex as any, { strict: false }]]}
       components={{
-        pre({ children, ...props }: any) {
-          // Check if this is a KaTeX element by checking children
-          if (children && typeof children === 'object') {
-            // If children is a React element with katex class, skip syntax highlighting
-            if (children.props?.className?.includes('katex')) {
-              return <pre {...props}>{children}</pre>;
-            }
-            // Check if it's a code element with language class (actual code block)
-            if (children.props?.className?.startsWith('language-')) {
-              const match = /language-(\w+)/.exec(children.props.className);
-              if (match) {
-                return (
-                  <SyntaxHighlighter
-                    style={dracula}
-                    language={match[1]}
-                    PreTag="div"
-                    {...props}
-                  >
-                    {String(children.props.children).replace(/\n$/, '')}
-                  </SyntaxHighlighter>
-                );
-              }
-            }
+        code(props) {
+          const {children, className, node, inline, ...rest} = props;
+          
+          // If children is a React element (not a string), it's likely from KaTeX, so just render it
+          if (typeof children === 'object' && React.isValidElement(children)) {
+            return <code {...rest} className={className}>{children}</code>;
           }
-          return <pre {...props}>{children}</pre>;
-        },
-        code({ node, inline, className, children, ...props }: any) {
-          // Don't interfere with KaTeX
-          if (className && className.includes('katex')) {
-            return <code className={className} {...props}>{children}</code>;
+          
+          // Check for language-specific code blocks (not inline)
+          const match = /language-(\w+)/.exec(className || '');
+          
+          if (!inline && match) {
+            return (
+              <SyntaxHighlighter
+                {...rest}
+                PreTag="div"
+                language={match[1]}
+                style={dracula}
+              >
+                {String(children).replace(/\n$/, '')}
+              </SyntaxHighlighter>
+            );
           }
-          // Regular code handling
-          return <code className={className} {...props}>{children}</code>;
+          
+          // For everything else (inline code, etc.)
+          return <code {...rest} className={className}>{children}</code>;
         },
-        img: ({ src, alt }) => (
-          <img src={src} alt={alt} style={{ maxWidth: '100%', height: 'auto' }} />
-        ),
-        a: ({ href, children }) => (
-          <a href={href} target="_blank" rel="noopener noreferrer">
-            {children}
-          </a>
-        ),
+        img(props) {
+          const {node, ...rest} = props;
+          return (
+            <img 
+              {...rest} 
+              style={{ maxWidth: '100%', height: 'auto', display: 'block', margin: '1rem 0' }} 
+            />
+          );
+        },
       }}
     >
       {content}
     </ReactMarkdown>
   );
 }
-
