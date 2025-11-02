@@ -199,7 +199,7 @@ a:hover {
 }
 
 .post-content blockquote {
-  border-left: 4px solid var(--color-accent);
+  border-left: 4px solid #000000;
   padding-left: 1.5em;
   margin: 1em 0;
   font-style: italic;
