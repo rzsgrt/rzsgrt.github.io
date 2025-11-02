@@ -16,18 +16,18 @@ export default function MarkdownContent({ content }: MarkdownContentProps) {
       remarkPlugins={[remarkMath, remarkGfm]}
       rehypePlugins={[[rehypeKatex as any, { strict: false }]]}
       components={{
-        code(props) {
-          const {children, className, node, inline, ...rest} = props;
+        code(props: any) {
+          const {children, className, node, ...rest} = props;
           
           // If children is a React element (not a string), it's likely from KaTeX, so just render it
           if (typeof children === 'object' && React.isValidElement(children)) {
             return <code {...rest} className={className}>{children}</code>;
           }
           
-          // Check for language-specific code blocks (not inline)
+          // Check for language-specific code blocks
           const match = /language-(\w+)/.exec(className || '');
           
-          if (!inline && match) {
+          if (match) {
             return (
               <SyntaxHighlighter
                 {...rest}
@@ -43,7 +43,7 @@ export default function MarkdownContent({ content }: MarkdownContentProps) {
           // For everything else (inline code, etc.)
           return <code {...rest} className={className}>{children}</code>;
         },
-        img(props) {
+        img(props: any) {
           const {node, ...rest} = props;
           return (
             <img 
