@@ -1,6 +1,7 @@
 ---
 title: Pirate Treasure
 date: November 11, 2025
+excerpt: A post about the pirate treasure problem and how to solve it.
 ---
 
 ## Problem Statement
